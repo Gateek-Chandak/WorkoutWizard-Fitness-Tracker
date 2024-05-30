@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        highlights: "#A1FF85"
+        highlights: "#000000",
+        bg: "#FFFFFF"
       }
     },
   },

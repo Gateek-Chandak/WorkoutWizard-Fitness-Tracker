@@ -6,11 +6,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: white;
 }
 
-.fc {
-  height: 90vh;
-  width: auto;
+.header {
+  border-bottom-width: 0.1px;
 }
 
 .log-in-container {
@@ -20,4 +20,8 @@
 
 .log-in-button {
   border-color: #26A300;
+}
+
+.rbc-off-range-bg {
+  background-color: rgba(128, 128, 128, 0.103);
 }

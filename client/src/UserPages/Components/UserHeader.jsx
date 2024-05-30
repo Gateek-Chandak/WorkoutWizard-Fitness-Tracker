@@ -18,7 +18,7 @@ const UserHeader = () => {
     };    
 
     return ( 
-        <div className="flex flex-row h-16 border-b-2 border-highlights bg-black">
+        <div className="header flex flex-row h-16 border-b-2 border-highlights bg-black">
             <Link to="/user-log" className="text-highlights w-1/2 flex items-center px-24">logo</Link>
             <ul className="text-white w-1/2 list-none flex flex-row gap-20 items-center justify-center ">
                 <li className="text-highlights">one</li>
