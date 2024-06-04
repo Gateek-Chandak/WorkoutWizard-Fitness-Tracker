@@ -1,0 +1,39 @@
+.rbc-off-range-bg {
+    background-color: transparent;
+  }
+  
+  .rbc-event-content {
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  .rbc-date-cell {
+    background-color: rgba(172, 171, 171, 0.047);
+  }
+  
+  .rbc-toolbar {
+    border: 2px rgba(172, 171, 171, 0.241) solid;
+    background-color: lightblue;
+    padding: 4px;
+    border-radius: 8px;
+  }
+  
+  .rbc-toolbar .rbc-toolbar-label {
+    text-align: right;
+    flex-grow: 1;
+    background-color: transparent;
+    color: white;
+    font-size: x-large;
+  }
+  
+  .rbc-btn-group  {
+    background-color: lightblue;
+  }
+  .rbc-btn-group > button {
+    background-color: white;
+    border: 1px rgba(172, 171, 171, 0.047) solid;
+    border-radius: 6px;
+    margin: 5px;
+  }
+  
+  

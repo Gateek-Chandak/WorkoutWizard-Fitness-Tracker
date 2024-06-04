@@ -1,22 +1,30 @@
 import AuthHeader from "./AuthHeader";
-import { useNavigate } from "react-router-dom";
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from '../Contexts/AuthContext'
 import supabase from './SupabaseClient';
+import '../styles/LogInStyles.css'
 
-
-const LogIn = () => {
-
+export const ProfilePicture = () => {
     const { session } = useAuth();
-    const navigate = useNavigate();
-
+    const [pfp, setPfp] = useState(null)
+    
     useEffect(() => {
         if (session) {
-            navigate('/user-log');
+            setPfp(session.user.user_metadata.picture)
         }
-    }, [session, navigate]);
+    }, [session]);
+
+    return (
+        <div className={pfp ? "" : "hidden"}>
+            {pfp && <img src={pfp} className="rounded-full h-10 w-10 overflow-hidden" alt="pfp" />}
+        </div>
+    );
+
+}
+
+const LogIn = () => {
 
     return (
         <div>
@@ -46,3 +54,4 @@ const LogIn = () => {
 };
  
 export default LogIn;
+

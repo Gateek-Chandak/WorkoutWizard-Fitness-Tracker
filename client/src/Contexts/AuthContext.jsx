@@ -6,6 +6,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [session, setSession] = useState(null);
+  const [user_id, setUserID] = useState(null)
 
   const navigate = useNavigate()
 
@@ -18,6 +19,7 @@ export const AuthProvider = ({ children }) => {
       setSession(session);
       if(session) {
         navigate('/user-log')
+        setUserID(session.user.id)
       } else {
         navigate('/')
       }
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ session, setSession }}>
+    <AuthContext.Provider value={{ session, setSession, user_id }}>
       {children}
     </AuthContext.Provider>
   );

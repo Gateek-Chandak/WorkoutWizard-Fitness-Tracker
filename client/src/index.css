@@ -12,16 +12,3 @@
 .header {
   border-bottom-width: 0.1px;
 }
-
-.log-in-container {
-  width: 600px;
-  height: auto;
-}
-
-.log-in-button {
-  border-color: #26A300;
-}
-
-.rbc-off-range-bg {
-  background-color: rgba(128, 128, 128, 0.103);
-}
