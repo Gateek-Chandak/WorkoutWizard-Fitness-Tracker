@@ -16,6 +16,13 @@ const WorkoutSplitForm = ( ) => {
 
     const handleAddItem = (e) => {
         e.preventDefault();
+        if (item === '') {
+            setError('Cannot have empty day')
+            setTimeout(() => {
+                setError(null)
+            }, [5000])
+            return
+        }
         setSplitItems([...splitItems, item]);
         setItem(''); 
     }

@@ -5,9 +5,10 @@ import { useWorkoutSplit } from "../../Contexts/WorkoutSplitContext"
 import { v4 as uuidv4 } from 'uuid';
 import WorkoutSplitForm from "../Forms/WorkoutSplitForm";
 import SplitCard from "../Components/SplitCard";
-import { useAuth } from "../../Contexts/AuthContext";
+import { useAuth } from "../../Contexts/AuthContext";;
+import SplitDaysRenderer from "../Components/SplitDaysRenderer";
 
-const WorkoutSplitManager = () => {
+const WorkoutSplitManager = ( ) => {
 
     const { session, user_id } = useAuth()
     const { splits } = useWorkoutSplit()
@@ -40,8 +41,10 @@ const WorkoutSplitManager = () => {
             if(!response.ok) {
                 return
             }
-            setSelectedSplit(json.response)
-            console.log(selectedSplit)
+            if(splits) {
+                console.log(json.response)
+                setSelectedSplit(json.response)
+            }
     }
 
     return ( 
@@ -57,7 +60,7 @@ const WorkoutSplitManager = () => {
                         ((splits.length > 0) ? 
                             <ul className="flex flex-col list-none">
                                 {splits && splits.map(split => {
-                                    return <SplitCard key={uuidv4()} name={split.split_name} handleSelectedSplit={handleSelectedSplit}/>
+                                    return <SplitCard key={uuidv4()} id={split.id} name={split.split_name} handleSelectedSplit={handleSelectedSplit}/>
                                 })}
                             </ul>
                         :
@@ -68,7 +71,10 @@ const WorkoutSplitManager = () => {
                 </div>
                 <div className="border border-black w-2/3">
                     {selectedSplit && selectedSplit.map((item) => {
-                        return <h1 key={uuidv4()}>{item.split_name}</h1>
+                        return  <div key={uuidv4()} className=''>
+                                    <h1>{item.split_name}</h1>
+                                    <SplitDaysRenderer item={item.items} />
+                                </div>
                     })} 
                 </div>
             </div>

@@ -5,6 +5,7 @@ import UserLog from "./UserPages/Pages/UserLog";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './Contexts/AuthContext'
 import { WorkoutSplitProvider } from "./Contexts/WorkoutSplitContext";
+import { DraggedEventProvider } from "./Contexts/DraggedEventContext";
 
 function App() {
 
@@ -12,12 +13,14 @@ function App() {
     <Router>
       <AuthProvider>
         <WorkoutSplitProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/log-in" element={<LogIn />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/user-log" element={<UserLog />} />
-          </Routes>
+          <DraggedEventProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/log-in" element={<LogIn />} />
+              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/user-log" element={<UserLog />} />
+            </Routes>
+          </DraggedEventProvider>
         </WorkoutSplitProvider>
       </AuthProvider>
     </Router>

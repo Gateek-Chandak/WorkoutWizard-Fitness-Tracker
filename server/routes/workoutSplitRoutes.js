@@ -40,6 +40,27 @@ router.post('/addSplits', async (req, res) => {
 })
 
 // DELETE A Split
+router.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id
+    const user_id = req.body.user_id
+
+    try {
+        const { data, error } = await supabase
+            .from('Workout_Splits')
+            .delete()
+            .eq('id', id)
+            .eq('user_id', user_id)
+        if(error)  {
+            throw new Error('error deleting split')
+        }
+        res.status(200).json({data})
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({error: error})
+    }
+    
+
+})
 
 // GET SPECIFIC Split
 router.post('/getSplit', async (req, res) => {
@@ -51,6 +72,7 @@ router.post('/getSplit', async (req, res) => {
             .from('Workout_Splits')
             .select('*')
             .eq('split_name', split_name)
+            .eq('user_id', user_id)
         const response = await data
         console.log(response)
         res.status(200).json({response})

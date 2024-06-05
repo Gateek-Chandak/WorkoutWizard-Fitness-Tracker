@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
-import DraggableComponent from './DraggableComponent';
 import '../../styles/CalendarStyles.css'
+import { useDraggedEvent } from '../../Contexts/DraggedEventContext';
 
-const localizer = momentLocalizer(moment);
-const DragAndDropCalendar = withDragAndDrop(Calendar);
+const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
 
-const CalendarComponent = () => {
+    const { draggedEvent, setDraggedEvent } = useDraggedEvent()
+
     const [events, setEvents] = useState([]); /* start, end, title, allDay */
 
     const moveEvent = ({ event, start, end }) => {
@@ -20,8 +15,6 @@ const CalendarComponent = () => {
         );
         setEvents(updatedEvents);
     };
-
-    const [draggedEvent, setDraggedEvent] = useState(null)
 
     const onDropFromOutside = ({start, end}) => {
         if(draggedEvent === 'undroppable') {
@@ -69,14 +62,7 @@ const CalendarComponent = () => {
       };
 
     return (
-        <DndProvider backend={HTML5Backend}>
-            <div className='m-4 flex flex-row gap-5'>
-                <DraggableComponent name="Chest/Triceps" draggable onDragStart={() => setDraggedEvent({title: 'Chest/Triceps'})}/>
-                <DraggableComponent name="Back" draggable onDragStart={() => setDraggedEvent({title: 'Back'})}/>
-                <DraggableComponent name="Shoulders/Biceps" draggable onDragStart={() => setDraggedEvent({title: 'Shoulders/Biceps'})}/>
-                <DraggableComponent name="Legs" draggable onDragStart={() => setDraggedEvent({title: 'Legs'})}/>
-                <DraggableComponent name="Rest" draggable onDragStart={() => setDraggedEvent({title: 'Rest'})}/>
-            </div>
+        <div>
             <div className="m-3">
                 <DragAndDropCalendar
                     localizer={localizer}
@@ -91,7 +77,7 @@ const CalendarComponent = () => {
                     className="border border-black rounded-md p-2 bg-white"
                 />
             </div>
-        </DndProvider>
+        </div>
     );
 };
 
