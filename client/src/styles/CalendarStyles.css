@@ -35,5 +35,8 @@
     border-radius: 6px;
     margin: 5px;
   }
-  
+
+  .rbc-event:hover {
+    background-color: rgba(181, 181, 181, 0.57) !important;
+  }
   

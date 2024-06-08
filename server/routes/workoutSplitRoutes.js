@@ -23,7 +23,6 @@ router.post('/getSplits', async (req, res) => {
 // POST A Split
 router.post('/addSplits', async (req, res) => {
     const split = req.body
-    console.log(split)
     try {
         const { data } = await supabase
                         .from('Workout_Splits')
@@ -64,9 +63,8 @@ router.delete('/delete/:id', async (req, res) => {
 
 // GET SPECIFIC Split
 router.post('/getSplit', async (req, res) => {
-    const user_id = req.body.userID
+    const user_id = req.body.user_id
     const split_name = req.body.name
-    console.log(req.body)
     try {
         let { data } = await supabase
             .from('Workout_Splits')
@@ -74,7 +72,6 @@ router.post('/getSplit', async (req, res) => {
             .eq('split_name', split_name)
             .eq('user_id', user_id)
         const response = await data
-        console.log(response)
         res.status(200).json({response})
     } catch (error) {
         console.log(error)

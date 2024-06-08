@@ -7,6 +7,7 @@ import moment from 'moment';
 import { DndProvider } from 'react-dnd';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 
+
 const localizer = momentLocalizer(moment);
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 

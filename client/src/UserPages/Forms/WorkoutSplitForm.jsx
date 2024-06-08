@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../Contexts/AuthContext";
 import { v4 as uuidv4 } from 'uuid';
 import { useWorkoutSplit } from "../../Contexts/WorkoutSplitContext";
+import { CirclePicker } from 'react-color';
 
 const WorkoutSplitForm = ( ) => {
 
@@ -9,9 +10,9 @@ const WorkoutSplitForm = ( ) => {
     const { session, user_id } = useAuth();
     const [splitName, setSplitName] = useState('')
     const [item, setItem] = useState('')
+    const [colour, setColour] = useState('#FFF');
     const [splitItems, setSplitItems] = useState([])
     const [email, setEmail] = useState(session.user.email)
-    const [userID, setUserID] = useState(user_id)
     const [error, setError] = useState(null)
 
     const handleAddItem = (e) => {
@@ -22,9 +23,23 @@ const WorkoutSplitForm = ( ) => {
                 setError(null)
             }, [5000])
             return
+        } else if (splitItems.filter(item => item.colour === colour).length > 0) {
+            setError('Choose a unique colour')
+            setTimeout(() => {
+                setError(null)
+            }, [5000])
+            return
+        } else if (colour === '#FFF') {
+            setError('Select a colour')
+            setTimeout(() => {
+                setError(null)
+            }, [5000])
+            return
         }
-        setSplitItems([...splitItems, item]);
+        setSplitItems([...splitItems, {name: item, colour: colour}]);
         setItem(''); 
+        setColour("#FFF");
+        setError(null);
     }
 
     const handleSubmit = async (e) => {
@@ -56,14 +71,13 @@ const WorkoutSplitForm = ( ) => {
                 setError(null)
             }, [5000])
             return
-        } else if (!userID) {
+        } else if (!user_id) {
             setError('Invalid Credentials')
             setTimeout(() => {
                 setError(null)
             }, [5000])
             return
-        } 
-
+        }
         try {
             const split = {
                 split_name: splitName,
@@ -82,6 +96,7 @@ const WorkoutSplitForm = ( ) => {
             setError(null)
             setSplitName('')
             setSplitItems([])
+            setColour("#FFF")
         } catch (err) {
             setError('Invalid Input')
             console.log(err)
@@ -108,10 +123,20 @@ const WorkoutSplitForm = ( ) => {
                     onChange={(e) => setItem(e.target.value)}
                 />
             </div>
+            <div className="inline-flex justify-center">
+                <CirclePicker
+                color={colour}
+                onChangeComplete={(newColor) => setColour(newColor.hex)}
+                />
+            </div>
             <button className=" border-black border"onClick={handleAddItem}>Add</button>
             <ul>
                 {(splitItems.length > 0) && splitItems.map((item) => (
-                    <li key={uuidv4()}>{item}</li>
+                    <div key={uuidv4()} className="flex flex-row gap-5 items-center">
+                        <li>{item.name}</li>
+                        <div className="rounded-full w-5 h-5" style={{ backgroundColor: item.colour}}></div>
+                    </div>
+
                 ))}
             </ul>
             <button type="submit" className="m-4 p-1 w-32  border-black border rounded-xl">Submit</button>

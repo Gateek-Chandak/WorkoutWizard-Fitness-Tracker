@@ -27,10 +27,10 @@ const SplitCard = ( {id, name, handleSelectedSplit} ) => {
                 },
                 body: JSON.stringify({user_id})
             })
-            if(!response.ok) {
-                return
-            }
-            setSplits(splits.filter(split => split.id !== id))
+        if(!response.ok) {
+            return
+        } 
+        setSplits(splits.filter(split => split.id !== id))
     }
 
     return ( 

@@ -7,9 +7,9 @@ const SplitDaysRenderer = ({ item }) => {
     const { setDraggedEvent } = useDraggedEvent()
 
     return ( 
-        <div>
+        <div className="flex flex-row justify-evenly">
              {item && item.map(day => {
-                return <DraggableComponent key={uuidv4()} name={day} draggable onDrag={() => setDraggedEvent({title: day})}/>
+                return <DraggableComponent key={uuidv4()} name={day} draggable onDrag={() => setDraggedEvent(JSON.parse(day))}/>
              })}
         </div>
      );

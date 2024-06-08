@@ -6,10 +6,6 @@ export const DraggedEventProvider = ({ children }) => {
 
   const [draggedEvent, setDraggedEvent] = useState(null)
 
-  useEffect(() => {
-    console.log(draggedEvent)
-  }, [draggedEvent])
-
   return (
     <DraggedEventContext.Provider value={{ draggedEvent, setDraggedEvent }}>
       {children}

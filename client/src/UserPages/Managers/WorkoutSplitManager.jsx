@@ -38,12 +38,14 @@ const WorkoutSplitManager = ( ) => {
                 body: JSON.stringify({name, user_id})
             })
             const json = await response.json()
+            console.log(json)
             if(!response.ok) {
                 return
             }
             if(splits) {
-                console.log(json.response)
+                console.log(json.response, "response")
                 setSelectedSplit(json.response)
+                
             }
     }
 
@@ -69,7 +71,7 @@ const WorkoutSplitManager = ( ) => {
                     : 
                         null}
                 </div>
-                <div className="border border-black w-2/3">
+                <div className="w-2/3">
                     {selectedSplit && selectedSplit.map((item) => {
                         return  <div key={uuidv4()} className=''>
                                     <h1>{item.split_name}</h1>
