@@ -6,7 +6,7 @@ const DraggableComponent = ({ name, draggable, onDrag}) => {
 
   return (
     <div
-      className='m-2 w-36 rounded-full text-center py-1'
+      className='m-2 w-32 rounded-full text-center py-1 hover:scale-110 hover:cursor-pointer transition-transform duration-300 '
       draggable={draggable}
       onDrag={onDrag}
       style={{ background: object.colour }}

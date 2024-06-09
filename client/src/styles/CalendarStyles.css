@@ -8,12 +8,13 @@
   }
   
   .rbc-date-cell {
-    background-color: rgba(172, 171, 171, 0.047);
+    text-align: center;
+    font-size: small;
   }
   
   .rbc-toolbar {
     border: 2px rgba(172, 171, 171, 0.241) solid;
-    background-color: lightblue;
+    background-color: gray;
     padding: 4px;
     border-radius: 8px;
   }
@@ -25,9 +26,13 @@
     color: white;
     font-size: x-large;
   }
+
+  .rbc-today {
+    background-color: rgb(211, 210, 210);
+  }
   
   .rbc-btn-group  {
-    background-color: lightblue;
+    background-color: gray;
   }
   .rbc-btn-group > button {
     background-color: white;
@@ -37,6 +42,9 @@
   }
 
   .rbc-event:hover {
-    background-color: rgba(181, 181, 181, 0.57) !important;
+    filter: brightness(1.2);
   }
   
+  .rbc-row-content {
+    color: black !important;
+  }

@@ -13,9 +13,7 @@ export const EventsProvider = ({ children }) => {
     const getEvents = async () => {
 
         setUserId(session.user.id)
-
         if(userID) {
-            console.log('getting events...')
             const response = await fetch('http://localhost:4000/api/events/getEvents', {
                 method: 'POST',
                 headers: {
@@ -27,13 +25,20 @@ export const EventsProvider = ({ children }) => {
             if(!response.ok) {
                 return
             }
-            const e = await json.response[0].events;
-            setEvents(e)
-        } 
+            if(await json.response[0].events) {
+                const e = await json.response[0].events;
+                setEvents(e)
+            } else {
+                createEvents()
+            }
+           
+        } else {
+            setEvents(null)
+        }
     }
 
     const createEvents = async () => {
-        if (!events && userID) {
+        if (userID) {
             const response = await fetch('http://localhost:4000/api/events/createEvents', {
                 method: 'POST',
                 headers: {
@@ -47,56 +52,12 @@ export const EventsProvider = ({ children }) => {
             }
             setEvents([])
         }
+        getEvents()
     }
-
-    // const updateEvents = async () => {
-    //     console.log(events)
-    //     setUserId(session.user.id)
-    //     console.log("user_id: ", userID)
-        
-    //     console.log('creating new event')
-    //     if(userID) {
-    //         console.log("ok")
-    //         const response = await fetch('http://localhost:4000/api/events/createEvents', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify({userID, events})
-    //             })
-    //         const json = await response.json()
-
-    //         if(!response.ok) {
-    //             return
-    //         }
-    //         console.log('Created new event', json)
-    //         return
-    //     }   
-
-    //     if(events.length >= 1) {
-    //         console.log("updating events")
-    //         if(userID) {
-    //             const response = await fetch('http://localhost:4000/api/events/updateEvents', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify({userID, events})
-    //             })
-    //             const json = await response.json()
-    
-    //             if(!response.ok) {
-    //                 return
-    //             }
-    //             console.log('NEW EVENTS', json)
-    //         }
-    //     } 
-    // }
 
     useEffect(() => {
         if(session) {
             createEvents()
-            getEvents()
         }
     }, [session])
 

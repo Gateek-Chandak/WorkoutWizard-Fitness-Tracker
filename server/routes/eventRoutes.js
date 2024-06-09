@@ -32,7 +32,6 @@ router.post('/updateEvents', async (req, res) => {
             .eq('user_id', user_id)
             .select()
 
-        console.log(data)
         res.status(200).json({data})
     } catch (error) {
         console.log(error)
@@ -45,15 +44,16 @@ router.post('/updateEvents', async (req, res) => {
 router.post('/createEvents', async (req, res) => {
     const events = req.body.events
     const user_id = req.body.userID
-    //console.log(req.body)
+    console.log(req.body)
     try {   
         
         const { data, error } = await supabase
                 .from('Workout_Events')
                 .insert([
-                { [events]: [], user_id: user_id },
+                { events: [], user_id: user_id },
                 ])
                 .select()
+        console.log(data)
         res.status(200).json({data})
     } catch (error) {
         console.log(error)

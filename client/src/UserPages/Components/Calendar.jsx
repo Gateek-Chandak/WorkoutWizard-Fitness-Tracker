@@ -57,7 +57,7 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
         const style = {
             backgroundColor: event.colour, // Set the background color
             borderRadius: '0px', // Optional: Add border radius for rounded corners
-            color: 'white', // Optional: Set text color
+            color: 'black', // Optional: Set text color
             border: 'none', // Optional: Remove event border
             height: '75px'
           }
@@ -68,7 +68,7 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
     };
     return (
         <div>
-            <div className="m-3">
+            <div className="bg-bg px-6 flex justify-center my-5">
                 {events && <DragAndDropCalendar
                     localizer={localizer}
                     events={events}
@@ -81,8 +81,8 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
                     onMouseOutEvent={onSelectEvent}
                     defaultView="month"
                     views={['month']}
-                    style={{ height: 600, width: 700, margin: 5 }}
-                    className="border border-black rounded-md p-2 bg-white"
+                    style={{ height: 560, width: '60%' }}
+                    className="border border-black rounded-xl p-2 bg-gray-200"
                 />}
             </div>
         </div>

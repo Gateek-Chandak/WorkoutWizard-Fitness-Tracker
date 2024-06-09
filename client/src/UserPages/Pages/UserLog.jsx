@@ -14,13 +14,15 @@ const DragAndDropCalendar = withDragAndDrop(Calendar);
 const UserLog = () => {
 
     return ( 
-        <DndProvider backend={HTML5Backend}>
-            <UserHeader />
-            <WorkoutSplitManager />
-            <CalendarComponent 
-                               DragAndDropCalendar={DragAndDropCalendar} 
-                               localizer={localizer}/>
-        </DndProvider>
+        <div className="bg-bg h-dvh">
+            <DndProvider backend={HTML5Backend}>
+                <UserHeader />
+                <WorkoutSplitManager />
+                <CalendarComponent 
+                            DragAndDropCalendar={DragAndDropCalendar} 
+                            localizer={localizer}/>
+            </DndProvider>
+        </div>
             
      );
 }

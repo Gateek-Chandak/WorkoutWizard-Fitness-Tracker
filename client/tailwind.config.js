@@ -10,8 +10,8 @@ export default {
         sm: '4px',
       },
       colors: {
-        highlights: "#000000",
-        bg: "#FFFFFF"
+        textMain: "#FFF",
+        bg: "#1F201D"
       }
     },
   },

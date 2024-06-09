@@ -17,8 +17,8 @@ export const ProfilePicture = () => {
     }, [session]);
 
     return (
-        <div className={pfp ? "" : "hidden"}>
-            {pfp && <img src={pfp} className="rounded-full h-10 w-10 overflow-hidden" alt="pfp" />}
+        <div className={pfp ? "bg-transparent" : "hidden"}>
+            {pfp && <img src={pfp} className="rounded-full h-10 w-10 overflow-hidden bg-transparent" alt="pfp" />}
         </div>
     );
 
