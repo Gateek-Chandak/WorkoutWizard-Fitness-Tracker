@@ -3,6 +3,39 @@
     height: auto;
   }
   
-  .log-in-button {
-    border-color: #26A300;
-  }
+.log-in-button {
+  
+}
+.log-in-anchor {
+  
+}
+.log-in-container {
+
+}
+.log-in-divider {
+
+}
+.log-in-label {
+  color: white;
+}
+.log-in-input {
+  color: white;
+}
+.log-in-loader {
+
+}
+.log-in-message {
+
+}
+
+.clip {
+  clip-path: polygon(
+                50% 0%,       /* Top center for the triangle */
+                55% 10px,     /* Right top of the triangle */
+                100% 10px,    /* Top right corner */
+                100% 100%,    /* Bottom right corner */
+                0% 100%,      /* Bottom left corner */
+                0% 10px,      /* Top left corner */
+                45% 10px      /* Left top of the triangle */
+            );
+}

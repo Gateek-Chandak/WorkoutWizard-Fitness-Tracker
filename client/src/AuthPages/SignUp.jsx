@@ -19,9 +19,9 @@ const SignUp = () => {
     }, [session, navigate]);
 
     return (
-        <div>
+        <div className="bg-bg h-dvh text-white">
             <AuthHeader />
-            <div className="flex justify-center items-center relative top-20">
+            <div className="flex justify-center items-center relative top-20 bg-bg">
                 <Auth
                     supabaseClient={supabase}
                     appearance={{ 

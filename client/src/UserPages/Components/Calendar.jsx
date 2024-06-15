@@ -5,7 +5,7 @@ import { useDraggedEvent } from '../../Contexts/DraggedEventContext';
 import { useEvents } from '../../Contexts/EventsContext';
 import { useAuth } from '../../Contexts/AuthContext';
 
-const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
+const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails}) => {
 
     const { session, user_id } = useAuth()
     const { events, setEvents } = useEvents()
@@ -40,17 +40,19 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
 
 
     const onSelectEvent = async (event) => {
-        if(session) {
-            const newEvents = events.filter(item => item.start !== event.start)
-            const response = await fetch('http://localhost:4000/api/events/updateEvents', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({userID: user_id, events: newEvents})
-            })
-            setEvents(newEvents)
-        }
+        console.log(event)
+        setAddDetails({isOpen: true, info: event})
+        // if(session) {
+        //     const newEvents = events.filter(item => item.start !== event.start)
+        //     const response = await fetch('http://localhost:4000/api/events/updateEvents', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({userID: user_id, events: newEvents})
+        //     })
+        //     setEvents(newEvents)
+        // }
     }
 
     const eventPropGetter = (event) => {
@@ -67,7 +69,6 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
           };
     };
     return (
-        <div>
             <div className="bg-bg px-6 flex justify-center my-5">
                 {events && <DragAndDropCalendar
                     localizer={localizer}
@@ -81,11 +82,10 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer}) => {
                     onMouseOutEvent={onSelectEvent}
                     defaultView="month"
                     views={['month']}
-                    style={{ height: 560, width: '60%' }}
-                    className="border border-black rounded-xl p-2 bg-gray-200"
+                    style={{ height: 560, width: '100%' }}
+                    className="border border-black rounded-xl bg-gray-200"
                 />}
             </div>
-        </div>
     );
 };
 

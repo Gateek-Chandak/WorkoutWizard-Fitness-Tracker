@@ -9,6 +9,7 @@ import '../styles/LogInStyles.css'
 export const ProfilePicture = () => {
     const { session } = useAuth();
     const [pfp, setPfp] = useState(null)
+    const [isClicked, setIsClicked] = useState(false)
     
     useEffect(() => {
         if (session) {
@@ -16,9 +17,28 @@ export const ProfilePicture = () => {
         }
     }, [session]);
 
+    const handleToggle = () => {
+        console.log("Is Clicked")
+        setIsClicked(!isClicked)
+    }
+
+    const handleSignOut = async () => {
+        const { error } = await supabase.auth.signOut();
+        if (error) {
+        console.error('Error signing out:', error);
+        } else {
+        setSession(null);
+        navigate('/');
+        }
+    };    
+
+
     return (
-        <div className={pfp ? "bg-transparent" : "hidden"}>
-            {pfp && <img src={pfp} className="rounded-full h-10 w-10 overflow-hidden bg-transparent" alt="pfp" />}
+        <div className={`w-10 flex flex-col items-center ${pfp ? "bg-transparent" : "hidden"}`}>
+            {pfp && <img src={pfp} onClick={handleToggle} className="rounded-full h-10 w-10 overflow-hidden bg-transparent fixed top-5" alt="pfp" />}
+            {isClicked && <div className="bg-gray-200 rounded-xl relative top-20 h-32 w-32 p-2 z-50 clip">
+                <button onClick={handleSignOut} className="text-black bg-white rounded-full px-2 text-sm py-3 my-5 z-auto hover:scale-110 hover:cursor-pointer transition-transform duration-20">sign out</button>
+            </div>}
         </div>
     );
 
@@ -27,9 +47,9 @@ export const ProfilePicture = () => {
 const LogIn = () => {
 
     return (
-        <div>
+        <div className="bg-bg h-dvh text-white">
             <AuthHeader />
-            <div className="flex justify-center items-center relative top-20">
+            <div className="flex justify-center items-center relative top-20 bg-bg text-white">
                 <Auth
                     supabaseClient={supabase}
                     appearance={{ 

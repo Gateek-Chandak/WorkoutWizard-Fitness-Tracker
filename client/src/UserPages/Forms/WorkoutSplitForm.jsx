@@ -98,7 +98,8 @@ const WorkoutSplitForm = ( {setAddingWorkout }) => {
                 split_name: splitName,
                 items: splitItems,
                 email,
-                user_id
+                user_id,
+                details: null
             }
             const response = await fetch('http://localhost:4000/api/workoutSplits/addSplits', {
                 method: 'POST',

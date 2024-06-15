@@ -36,8 +36,8 @@ const SplitCard = ( {id, name, handleSelectedSplit, setIsOpen} ) => {
 
     return ( 
         <div className='bg-bg flex justify-between items-center w-full gap-2'>
-            <button className=" w-5 h-5 flex items-center justify-center hover:scale-110 hover:cursor-pointer transition-transform duration-20 text-red-400" onClick={handleDeleteSplit}>x</button>
-            <button className="text-left text-gray-100" onClick={handleClick}>{name}</button>
+            <button className=" w-5 h-5 flex items-center justify-center hover:scale-110 hover:cursor-pointer transition-transform duration-200 text-red-400 hover:text-red-500" onClick={handleDeleteSplit}>x</button>
+            <button className="text-left text-gray-100 hover:text-gray-400 hover:scale-105 hover:cursor-pointer transition-transform duration-200" onClick={handleClick}>{name}</button>
             <h6 className='text-red-500'>{error}</h6>
         </div>
         

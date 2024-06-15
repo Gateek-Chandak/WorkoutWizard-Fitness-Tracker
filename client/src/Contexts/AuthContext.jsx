@@ -7,21 +7,28 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [session, setSession] = useState(null);
   const [user_id, setUserID] = useState(null)
+  const [redirected, setRedirected] = useState(false)
 
   const navigate = useNavigate()
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      if(session && !redirected) {
+        setRedirected(true)
+        navigate('/user-log')
+      } else {
+        setRedirected(false)
+      }
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if(session) {
-        navigate('/user-log')
         setUserID(session.user.id)
       } else {
         navigate('/')
+        setRedirected(false)
       }
     });
 

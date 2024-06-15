@@ -48,3 +48,7 @@
   .rbc-row-content {
     color: black !important;
   }
+
+  .rbc-month-view {
+    border: none;
+  }

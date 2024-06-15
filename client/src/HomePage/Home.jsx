@@ -2,7 +2,7 @@ import HomeHeader from "./HomeHeader";
 
 const Home = () => {
     return ( 
-        <div>
+        <div className="bg-bg h-dvh">
             <HomeHeader />
         </div>
      );

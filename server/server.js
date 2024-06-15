@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 4000
 
 const workoutSplitRoutes = require('./routes/workoutSplitRoutes')
 const eventRoutes = require('./routes/eventRoutes')
+const openAIRoutes = require('./routes/openAIRoutes')
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 app.use('/api/workoutSplits', workoutSplitRoutes)
 app.use('/api/events', eventRoutes)
+app.use('/api/openAIRoutes', openAIRoutes)
 
 app.listen(PORT, () => {
     console.log(`Connected To Port ${PORT}`)
