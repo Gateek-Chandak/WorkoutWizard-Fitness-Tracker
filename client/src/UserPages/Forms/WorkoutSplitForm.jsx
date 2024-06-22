@@ -124,7 +124,7 @@ const WorkoutSplitForm = ( {setAddingWorkout }) => {
         <form onSubmit={handleSubmit} className='flex flex-col gap-3 shadow-textMain p-3 w-full h-fit bg-gray-300 rounded-3xl'>
             <div className="flex flex-row items-center justify-center">
                 <input
-                    className="text-2xl text-center focus:outline-none focus:placeholder-slate-500 h-10 rounded-sm p-2 bg-transparent text-black w-fit placeholder:italic placeholder:text-lg placeholder:text-black border-b border-black placeholder:text-center"
+                    className="text-xl text-center focus:outline-none focus:placeholder-slate-500 h-10 rounded-sm p-2 bg-transparent text-black w-fit placeholder:italic placeholder:text-sm placeholder:text-black border-b border-black placeholder:text-center"
                     type="text"
                     value={splitName}
                     placeholder="Name your routine"

@@ -20,6 +20,7 @@ const UserLog = () => {
     const { events, setEvents } = useEvents()
 
     const [addDetails, setAddDetails] = useState({isOpen: false, info: null})
+    const [workoutInfo, setWorkoutInfo] = useState(null)
 
     const deleteEvent = async () => {
 
@@ -42,16 +43,21 @@ const UserLog = () => {
             <DndProvider backend={HTML5Backend}>
                 <UserHeader />
                 <WorkoutSplitManager />
-                <div className="w-full flex flex-row justify-center">
+                <div className="w-full flex flex-row justify-center bg-bg">
                     <div className={`${addDetails.isOpen ? `w-3/5`  : 'w-7/12'}`}>
                         <CalendarComponent 
                             DragAndDropCalendar={DragAndDropCalendar} 
                             localizer={localizer}
-                            setAddDetails={setAddDetails}/>
+                            setAddDetails={setAddDetails}
+                            workoutInfo={workoutInfo} 
+                            setWorkoutInfo={setWorkoutInfo}/>
                     </div>
-                    {addDetails.isOpen && addDetails.info && <WorkoutDetails addDetails={addDetails} setAddDetails={setAddDetails} deleteEvent={deleteEvent}/> }
+                    {addDetails.isOpen && addDetails.info && <WorkoutDetails addDetails={addDetails} setAddDetails={setAddDetails} deleteEvent={deleteEvent} workoutInfo={workoutInfo} setWorkoutInfo={setWorkoutInfo}/> }
                 </div>
             </DndProvider>
+            <div className="bg-bg py-1 border-t border-gray-800 fixed bottom-0 text-center w-full z-50">
+                <p className="block text-gray-500 text-center text-xs bg-bg">Workout wizard © 2024</p>
+            </div>
         </div>
             
      );

@@ -29,6 +29,7 @@
 
   .rbc-today {
     background-color: rgb(211, 210, 210);
+    border-radius: 8px;
   }
   
   .rbc-btn-group  {

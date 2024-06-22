@@ -5,12 +5,11 @@ import { useDraggedEvent } from '../../Contexts/DraggedEventContext';
 import { useEvents } from '../../Contexts/EventsContext';
 import { useAuth } from '../../Contexts/AuthContext';
 
-const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails}) => {
+const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails, workoutInfo, setWorkoutInfo }) => {
 
     const { session, user_id } = useAuth()
     const { events, setEvents } = useEvents()
     const { draggedEvent, setDraggedEvent } = useDraggedEvent()
- /* start, end, title, allDay */
 
 
     const moveEvent = ({ event, start, end }) => {
@@ -41,6 +40,7 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails}) => 
 
     const onSelectEvent = async (event) => {
         console.log(event)
+        setWorkoutInfo(null)
         setAddDetails({isOpen: true, info: event})
         // if(session) {
         //     const newEvents = events.filter(item => item.start !== event.start)
@@ -58,10 +58,11 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails}) => 
     const eventPropGetter = (event) => {
         const style = {
             backgroundColor: event.colour, // Set the background color
-            borderRadius: '0px', // Optional: Add border radius for rounded corners
+            borderRadius: '10px', // Optional: Add border radius for rounded corners
             color: 'black', // Optional: Set text color
             border: 'none', // Optional: Remove event border
-            height: '75px'
+            height: '58px',
+            padding: '5px',
           }
 
           return {

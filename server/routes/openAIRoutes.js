@@ -20,11 +20,11 @@ const parseData = (data) => {
 
 // POST a response
 router.post('/generate-response', async (req, res) => {
-    const { content } = req.body
+    const { content, difficulty, numOfExercises } = req.body
 
     try {
         const completion = await openai.chat.completions.create({
-            messages: [{ role: "user", content: `give me a 5 x 3 table with 5 ${content} exercizes, the order, name, and [sets x reps], do not include any other words. format it like this '1 | chest press | 3 x 5'` }],
+            messages: [{ role: "user", content: `give me a ${numOfExercises} x 3 table with ${numOfExercises} ${content} exercizes of ${difficulty} intensity, the order, name, and [sets x reps]. Include 1 or 2 compound lifts, then 3 isolated accessories. Do not include any other words. format it like this '1 | chest press | 3 x 5'` }],
             model: "gpt-4o",
         });
         const rows = await completion.choices[0].message.content.split('\n')
