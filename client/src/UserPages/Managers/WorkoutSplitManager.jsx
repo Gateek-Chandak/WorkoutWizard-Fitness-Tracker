@@ -52,7 +52,7 @@ const WorkoutSplitManager = ( ) => {
     return ( 
         <div className="bg-bg flex justify-center w-full flex-row text-textMain">
             <div className="flex flex-row mx-7 bg-bg w-full justify-between">
-                <button className="text-textMain my-5 h-11 w-12 rounded-3xl backdrop-brightness-125 hover:scale-110 hover:cursor-pointer transition-transform duration-200 hover:backdrop-brightness-200 z-50" onClick={toggleAddingWorkout}>{addingWorkout ? '-' : '+'}</button>
+                <button className="text-textMain my-5 h-11 w-12 rounded-3xl backdrop-brightness-125 hover:scale-110 hover:cursor-pointer transition-transform duration-200 hover:backdrop-brightness-200 z-50 box2" onClick={toggleAddingWorkout}>{addingWorkout ? '-' : '+'}</button>
                 <div className="my-2 w-full h-fit z-10 bg-bg text-center rounded-lg">
                     <button onClick={toggleDropdown} className="dropdown-toggle">
                         <h6 className="mt-3 bg-bg hover:scale-105 hover:cursor-pointer transition-transform duration-200 ">{(selectedSplit && splits && (splits.length > 0)) ? selectedSplit[0].split_name : "Routines"}</h6>

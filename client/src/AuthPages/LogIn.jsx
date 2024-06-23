@@ -36,8 +36,8 @@ export const ProfilePicture = () => {
     return (
         <div className={`w-10 flex flex-col items-center ${pfp ? "bg-transparent" : "hidden"}`}>
             {pfp && <img src={pfp} onClick={handleToggle} className="rounded-full h-10 w-10 overflow-hidden bg-transparent fixed top-5" alt="pfp" />}
-            {isClicked && <div className="bg-purple-200 rounded-xl relative top-20 h-32 w-32 p-2 z-50 clip">
-                <button onClick={handleSignOut} className="text-black bg-purple-400 rounded-full px-2 text-sm py-3 my-5 z-auto hover:scale-110 hover:cursor-pointer transition-transform duration-20">sign out</button>
+            {isClicked && <div className="bg-purple-50 rounded-xl relative top-20 h-32 w-32 p-2 z-50 clip">
+                <button onClick={handleSignOut} className="text-black bg-purple-300 rounded-full px-2 text-sm py-3 my-9 z-auto hover:scale-110 hover:cursor-pointer transition-transform duration-20">sign out</button>
             </div>}
         </div>
     );

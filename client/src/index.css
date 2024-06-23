@@ -110,3 +110,152 @@
 .sliderNum:hover {
   opacity: 1;
 }
+
+.box {
+  border: 1.2px solid #0000;
+  border-radius: 50px;
+  background: linear-gradient(rgb(20, 20, 20), rgb(32, 32, 32)) padding-box, linear-gradient(
+        var(--angle),
+        #4a4a4a,
+        #464646,
+        #414040,
+        rgb(192, 132, 252),
+        rgb(192 132 252)
+      ) border-box;
+  animation: 6s rotate linear infinite;
+}
+
+.box2 {
+  border: 1px solid #0000;
+  border-radius: 1000px;
+  background: linear-gradient(#282828, #282828) padding-box, linear-gradient(
+        var(--angle),
+        #fccdff74,
+        #c068ff67
+      ) border-box;
+  animation: 5s rotate infinite;
+}
+
+.boxJS {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #fffb00c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxReact {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #00b3ffc0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxVite {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #c300ffc0,
+        #fffb00c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxNode {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #09ff00c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxTailwind {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #00ccffc0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxExpress {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #bf00ffc0,
+        #00c8ffc0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxSupabase {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #0aa41ac0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxNpm {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxNpm {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+.boxNpm {
+  border: 0.5px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(#000000, #000000) padding-box, linear-gradient(
+        var(--angle),
+        #ff0000c0,
+        #ffffff00
+      ) border-box;
+  animation: 5s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}

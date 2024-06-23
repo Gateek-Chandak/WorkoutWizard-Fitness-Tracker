@@ -13,13 +13,11 @@ const UserHeader = () => {
 
     return ( 
         <div className="header flex flex-row h-20 border-b-2 border-gray-700 bg-bg">
-            <Link to="/user-log" className="text-white w-8/12 flex items-center px-24 bg-bg">
+            <Link to="/user-log" className="text-white w-10/12 flex items-center px-24 bg-bg">
                 <img src={WizardImg} alt="" className="w-14 h-14" /> 
                 <h1 className="text-purple-300 m-2 mt-4">Workout Wizard</h1>
             </Link>
-            <ul className="text-white w-5/12 list-none flex flex-row gap-20 items-center justify-center bg-bg">
-                <Link to="/user-log" className="text-purple-300 bg-transparent hover:scale-110 hover:cursor-pointer transition-transform duration-200">Log</Link>
-                <Link to='/goals' className="text-purple-300 bg-transparent hover:scale-110 hover:cursor-pointer transition-transform duration-200">Goals</Link>
+            <ul className="text-white w-1/12 list-none flex flex-row gap-20 items-center justify-center bg-bg">
                 {/* <li className="text-highlights bg-transparent hover:scale-110 hover:cursor-pointer transition-transform duration-200">Nutrition</li> */}
                 <button className="bg-transparent">
                     <ProfilePicture/>
