@@ -1,6 +1,10 @@
-This is a fitness tracking app that helps users document and plan their fitness journey.
-This web application sits on a REST API made from Node/Express and Supabase. It performs CRUD events and 
-uses the OpenAI API to make fitness plans based on user preferences and schedules. It is responsive and 
+Abstract
+Fitness tracking app that helps users document and plan their fitness journey aided by AI.
+
+Description
+This web application sits on a REST API made from Node/Express and Supabase. It performs CRUD events to 
+manage workout routines and schedule events.
+It also uses the OpenAI API to generate fitness plans based on user preferences and schedules. It is responsive and 
 seamless styled using TailwindCSS.
 
 Made with 
@@ -10,8 +14,3 @@ Made with
 - Supabase (Database and OAuth)
 - OpenAI's API
 - NPM libraries (react-big-calendar, react-dnd, datefns)
-
-Things to improve
-- Documentation
-- Organization of code
-- Modularization of components to improve reusability
