@@ -26,7 +26,7 @@ const UserLog = () => {
 
         if(session) {
             const newEvents = events.filter(item => item.start !== addDetails.info.start)
-            const response = await fetch('http://localhost:4000/api/events/updateEvents', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/events/updateEvents', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

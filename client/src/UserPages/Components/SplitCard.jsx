@@ -21,7 +21,7 @@ const SplitCard = ( {id, name, handleSelectedSplit, setIsOpen} ) => {
             }, [3000])
             return 
         }
-        const response = await fetch(`http://localhost:4000/api/workoutSplits/delete/${id}`, {
+        const response = await fetch(`https://workout-wizard-fitness-tracker.vercel.app/api/workoutSplits/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

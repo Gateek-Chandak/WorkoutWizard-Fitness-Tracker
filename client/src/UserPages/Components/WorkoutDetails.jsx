@@ -62,7 +62,7 @@ const WorkoutDetails = ( { addDetails, setAddDetails, deleteEvent, workoutInfo, 
         }
 
         try {
-            const response = await fetch('http://localhost:4000/api/openAIRoutes/generate-response', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/openAIRoutes/generate-response', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ const WorkoutDetails = ( { addDetails, setAddDetails, deleteEvent, workoutInfo, 
         }
         if(session) {
             const newEvents = events.map(item => (item.start === addDetails.info.start) ? { ...item, details: workoutInfo } : item)
-            const response = await fetch('http://localhost:4000/api/events/updateEvents', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/events/updateEvents', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

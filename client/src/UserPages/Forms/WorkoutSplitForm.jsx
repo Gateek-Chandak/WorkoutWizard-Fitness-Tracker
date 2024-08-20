@@ -101,7 +101,7 @@ const WorkoutSplitForm = ( {setAddingWorkout }) => {
                 user_id,
                 details: null
             }
-            const response = await fetch('http://localhost:4000/api/workoutSplits/addSplits', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/workoutSplits/addSplits', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

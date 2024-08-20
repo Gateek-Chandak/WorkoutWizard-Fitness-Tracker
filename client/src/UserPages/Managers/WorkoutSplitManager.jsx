@@ -30,7 +30,7 @@ const WorkoutSplitManager = ( ) => {
         if(!user_id) {
             return 
         }
-        const response = await fetch('http://localhost:4000/api/workoutSplits/getSplit', {
+        const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/workoutSplits/getSplit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

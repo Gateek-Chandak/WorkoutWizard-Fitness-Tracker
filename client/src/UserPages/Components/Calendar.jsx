@@ -24,7 +24,7 @@ const CalendarComponent = ({ DragAndDropCalendar, localizer, setAddDetails, work
             return
         } else if (draggedEvent) {
             const newEvents = [...events, {start, end, title: draggedEvent.name, colour: draggedEvent.colour, allDay: true}]
-            const response = await fetch('http://localhost:4000/api/events/updateEvents', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/events/updateEvents', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -14,7 +14,7 @@ export const EventsProvider = ({ children }) => {
 
         setUserId(session.user.id)
         if(userID) {
-            const response = await fetch('http://localhost:4000/api/events/getEvents', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/events/getEvents', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export const EventsProvider = ({ children }) => {
 
     const createEvents = async () => {
         if (userID) {
-            const response = await fetch('http://localhost:4000/api/events/createEvents', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/events/createEvents', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

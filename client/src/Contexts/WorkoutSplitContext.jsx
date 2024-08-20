@@ -15,7 +15,7 @@ export const WorkoutSplitProvider = ({ children }) => {
         setUserId(session.user.id)
         
         if(userID) {
-            const response = await fetch('http://localhost:4000/api/workoutSplits/getSplits', {
+            const response = await fetch('https://workout-wizard-fitness-tracker.vercel.app/api/workoutSplits/getSplits', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
